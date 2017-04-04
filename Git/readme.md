@@ -4,3 +4,6 @@ Git is a distribution manager, It is one of the best tool for open source commun
 
 ## Road to Learn Git
 This is the second time or the third to learn Git and Github. Because I am not a formal programmer and I just want to learn the thing I will use, so evey time when I have learn something I want about Git and Github and I will not continune learning. And more worse is that I do not make note and eveytime I continue learn Git and Github is a new start. And this time I must learn from the problem I have made. And spend less time to restart learn the sme thing. So I must to make some note in English.
+
+## Fail to connect Github with SSH
+
