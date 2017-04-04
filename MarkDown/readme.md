@@ -39,3 +39,7 @@ And then we load picture in syntax as below:
 We use `[text(what will show)](url)` to make a link. A sample as below:
 
 We can search by [Baidu](http://www.baidu.com)
+
+# Reference
+
+* [Markdown——入门指南](http://www.jianshu.com/p/24aefcd4ca93)
