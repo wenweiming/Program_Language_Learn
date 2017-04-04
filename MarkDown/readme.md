@@ -20,3 +20,14 @@ We totally have six title level.
 We can use `>` to cite something you cite from other website or you just want use this layout just as below:
 
 >Do as Roman do!
+
+## Picture and Link
+If we want to add Picture in markdown, we have two way to load picture on markdown. Firstly we can use local way to load picture, but I recommand use the second way to load picture.
+
+When we want load picture in markdown, we had better to upload a picture in the internet, and I recommand we can create a folder in your github repository to store picture. which will help you can load the picture in markdown file everywhere you open.
+
+And then we load picture in syntax as below:
+
+`![text(what show if no picture)](url){ImageCap}`
+
+
