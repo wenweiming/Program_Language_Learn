@@ -28,6 +28,6 @@ When we want load picture in markdown, we had better to upload a picture in the 
 
 And then we load picture in syntax as below:
 
-`![text(what show if no picture)](url){ImgCap}{/ImgCap}`
+`![text(what show if no picture)](url "title")`
 
-![panda](https://github.com/DavidAutoControl/Program_Language_Learn/blob/master/MarkDown/picture/panda.jpg){ImgCap}{/Panda}
+![panda](https://github.com/DavidAutoControl/Program_Language_Learn/blob/master/MarkDown/picture/panda.jpg "Panda") 
