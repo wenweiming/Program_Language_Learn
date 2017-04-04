@@ -36,6 +36,6 @@ And then we load picture in syntax as below:
 
 *Link
 
-We use [text(what will show)](url)` to make a link. A sample as below:
+We use `[text(what will show)](url)` to make a link. A sample as below:
 
-We can search by [Baidu](www.baidu.com)
+We can search by [Baidu](http://www.baidu.com)
