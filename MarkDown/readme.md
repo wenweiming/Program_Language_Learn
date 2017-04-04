@@ -30,4 +30,5 @@ And then we load picture in syntax as below:
 
 `![text(what show if no picture)](url){ImageCap}`
 
+![panda](https://github.com/DavidAutoControl/Program_Language_Learn/blob/master/MarkDown/picture/panda.jpg){Panda}
 
