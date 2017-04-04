@@ -34,7 +34,7 @@ And then we load picture in syntax as below:
 
 ![panda](https://github.com/DavidAutoControl/Program_Language_Learn/blob/master/MarkDown/picture/panda.jpg "Panda") 
 
-*Link
+* Link
 
 We use `[text(what will show)](url)` to make a link. A sample as below:
 
