@@ -45,7 +45,7 @@ vim ~/.bash_profile
 ```
 and make shure `/usr/local/bin` is in the headmost of PATH
 ### Windows
-Install vim by `[download](ftp://ftp.vim.org/pub/vim/pc/gvim80-069.exe)` and double click exe file.
+Install vim by [download](https://github.com/vim/vim-win32-installer/releases/download/v8.0.0003/gvim_8.0.0003_x86.exe) and double click exe file.
 ## Introduce Vim
 ToDo
 
