@@ -50,7 +50,23 @@ Install vim by [download](https://github.com/vim/vim-win32-installer/releases/do
 ToDo
 
 ## Plugin Manager Vundle
-ToDo
+### Install Vundle
+Vundle is one of Plugin Manager of Vim. I think it is very easy to use. you can learn more about Vundle by [click](https://github.com/VundleVim/Vundle.vim)
+
+### problem when use Vundle
+* On OSX
+But I have some ssh connect problem when I have go into Vim and use cmd `:VundleInstall`. I can't download the plugin by Vundle my cmd `:VundleInstall` in OSX. I think maybe something wrong when I configure git and github account. And Finally I find a way to install Plugin. Because Vundle have ssh connect problem, I download the plugin by `git clone`
+```
+cd ~/.vim/bundle/
+git clone git@github.com:package.git #clone the package you want
+```
+And modify the `~/.vimrc` file
+such as
+```
+Plugin "xxx/xxx"
+```
+And then open Vim and use comd `:VundleInstall` or `BundleInstall` to find whether install plugin successfully.
+
 
 ## Reference
 1.[Vim install by source code in Ubuntu and OSX](http://www.vim.org/git.php)
