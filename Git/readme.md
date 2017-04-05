@@ -8,6 +8,6 @@ This is the second time or the third to learn Git and Github. Because I am not a
 ## Problem of use Git
 ### error:src refspec master does not match any
 Because there is no file in local repository and when we use `git push` the erro appear. [Click](http://www.jianshu.com/p/8d26730386f3) to solve.
-### connect problem on Mac
-
+### error:connect to host github.com port22:Connection timed out
+I want to use two github account in my mac, I face this problem. and you need todo as follow [Click](http://blog.csdn.net/xiaoshiyiqie/article/details/52846408) which will be connect to github, but It's not the best way to solve the "port22 connect problem".
 
