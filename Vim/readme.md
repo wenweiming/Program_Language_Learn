@@ -72,3 +72,5 @@ And then open Vim and use comd `:VundleInstall` or `BundleInstall` to find wheth
 1.[Vim install by source code in Ubuntu and OSX](http://www.vim.org/git.php)
 
 2.[Rebuild vim for python support](https://elloop.github.io/tools/2016-06-26/upgrade-vim-built-in-mac)
+
+3.[Plugin about markdown in vim introduction](http://www.jianshu.com/p/24aefcd4ca93)
