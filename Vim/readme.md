@@ -74,3 +74,5 @@ And then open Vim and use comd `:VundleInstall` or `BundleInstall` to find wheth
 2.[Rebuild vim for python support](https://elloop.github.io/tools/2016-06-26/upgrade-vim-built-in-mac)
 
 3.[Plugin about markdown in vim introduction](http://www.jianshu.com/p/24aefcd4ca93)
+
+4.[A good website which introduce VIM! recommend!!](http://blog.csdn.net/mergerly/article/details/51671890)
