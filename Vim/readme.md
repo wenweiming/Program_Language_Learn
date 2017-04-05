@@ -45,7 +45,7 @@ vim ~/.bash_profile
 ```
 and make shure `/usr/local/bin` is in the headmost of PATH
 ### Windows
-Install vim by [download](ftp://ftp.vim.org/pub/vim/pc/gvim80-069.exe) and double click exe file.
+Install vim by `[download](ftp://ftp.vim.org/pub/vim/pc/gvim80-069.exe)` and double click exe file.
 ## Introduce Vim
 ToDo
 
@@ -54,4 +54,5 @@ ToDo
 
 ## Reference
 1.[Vim install by source code in Ubuntu and OSX](http://www.vim.org/git.php)
+
 2.[Rebuild vim for python support](https://elloop.github.io/tools/2016-06-26/upgrade-vim-built-in-mac)
