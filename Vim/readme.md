@@ -63,6 +63,8 @@ Vundle is one of Plugin Manager of Vim. I think it is very easy to use. you can 
 * 2.安装Vim和python得同样是32位程序或者是64位程序。同时python的版本不要太高，2.7就能使用。（[参考1](http://zengrong.net/post/1690.htm),[参考2](http://blog.sina.com.cn/s/blog_c52f07550102vi8p.html))
 * 3.安装完成后，记得把python的路径包含到系统的环境变量中。然后重启电脑。
 * 4.最后记得修改`vim\_vimrc`文件。设置浏览器的地址。([参考](https://github.com/iamcco/markdown-preview.vim/issues/36))
+
+[插件官网](https://github.com/iamcco/markdown-preview.vim)    
 ### problem when use Vundle
 * On OSX
 But I have some ssh connect problem when I have go into Vim and use cmd `:VundleInstall`. I can't download the plugin by Vundle my cmd `:VundleInstall` in OSX. I think maybe something wrong when I configure git and github account. And Finally I find a way to install Plugin. Because Vundle have ssh connect problem, I download the plugin by `git clone`
