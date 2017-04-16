@@ -53,18 +53,6 @@ ToDo
 ### Install Vundle
 Vundle is one of Plugin Manager of Vim. I think it is very easy to use. you can learn more about Vundle by [click](https://github.com/VundleVim/Vundle.vim)
 
-### Install 'iamcco/markdown-preview.vim'
-这个插件是用来进行Markdown预览用的，这个插件支持Windows，OSX，Ubuntu。而且能够自动定位。是一款非常不错的插件。
-> 这个插件需要vim支持python2或者python3。
-
-#### Windows
-在Windows下需要使用gvim这个软件来实现，这样就不需要重新编译安装Vim。在安装过程有以下几个注意事项。
-* 1.只有使用gvim能使用插件。
-* 2.安装Vim和python得同样是32位程序或者是64位程序。同时python的版本不要太高，2.7就能使用。（[参考1](http://zengrong.net/post/1690.htm),[参考2](http://blog.sina.com.cn/s/blog_c52f07550102vi8p.html))
-* 3.安装完成后，记得把python的路径包含到系统的环境变量中。然后重启电脑。
-* 4.最后记得修改`vim\_vimrc`文件。设置浏览器的地址。([参考](https://github.com/iamcco/markdown-preview.vim/issues/36))
-
-[插件官网](https://github.com/iamcco/markdown-preview.vim)    
 ### problem when use Vundle
 * On OSX
 But I have some ssh connect problem when I have go into Vim and use cmd `:VundleInstall`. I can't download the plugin by Vundle my cmd `:VundleInstall` in OSX. I think maybe something wrong when I configure git and github account. And Finally I find a way to install Plugin. Because Vundle have ssh connect problem, I download the plugin by `git clone`
@@ -79,6 +67,34 @@ Plugin "xxx/xxx"
 ```
 And then open Vim and use comd `:VundleInstall` or `BundleInstall` to find whether install plugin successfully.
 
+## Install 'iamcco/markdown-preview.vim'
+这个插件是用来进行Markdown预览用的，这个插件支持Windows，OSX，Ubuntu。而且能够自动定位。是一款非常不错的插件。
+> 这个插件需要vim支持python2或者python3。
+
+### Windows
+在Windows下需要使用gvim这个软件来实现，这样就不需要重新编译安装Vim。在安装过程有以下几个注意事项。
+* 1.只有使用gvim能使用插件。
+* 2.安装Vim和python得同样是32位程序或者是64位程序。同时python的版本不要太高，2.7就能使用。（[参考1](http://zengrong.net/post/1690.htm),[参考2](http://blog.sina.com.cn/s/blog_c52f07550102vi8p.html))
+* 3.安装完成后，记得把python的路径包含到系统的环境变量中。然后重启电脑。
+* 4.最后记得修改`vim\_vimrc`文件。设置浏览器的地址。([参考](https://github.com/iamcco/markdown-preview.vim/issues/36))
+
+[插件官网](https://github.com/iamcco/markdown-preview.vim)   
+
+## Solarized 配色
+### Windows
+在Windows下Solarized配色比较简单。
+* 1.首先按照[网站](https://github.com/altercation/vim-colors-solarized)的Installation部分的Option1，将Solarized库下载下来。并复制到指定的文件夹
+```
+cd vim-colors-solarized/colors
+mv solarized.vim ~/.vim/colors/
+```
+* 2.然后修改`vimrc`文件
+```
+syntax enable
+set background=dark
+colorscheme solarized
+```
+然后就安装配色成功了。
 
 ## Reference
 1.[Vim install by source code in Ubuntu and OSX](http://www.vim.org/git.php)
