@@ -85,3 +85,28 @@ sudo apt-get install ctags
 ## YouCompleteMe
 
 [YouCompleteMe官网](https://github.com/Valloric/YouCompleteMe)
+
+
+# Vim小问题
+
+## Vim在Windows系统中的编码问题。
+在Windows上使用gvim的时候，中文有的时候会显示乱码，具体原因不太明白，参考两篇文章好问题得到了解决。
+* 参考[第一篇文章](http://blog.csdn.net/keepliving/article/details/5623362)
+* 在_vimcm中加入:
+```
+set enc=utf8
+set fencs=utf8,gbk,gb2312,gb18030,cp936
+```
+就能够解决文章的中文显示问题。
+* 参考[第二篇](https://www.douban.com/note/145491549/)
+ * 在_vimrc中加入：
+```
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+```
+解决菜单中文显示问题。
+ * 在_vimrc中加入：
+```
+language messages zh_CN.utf-8
+```
+解决提示中文显示问题。
