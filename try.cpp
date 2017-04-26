@@ -17,119 +17,63 @@ float GetOperand()
 	return Operand;
 }
 
+void DisplayValueOnConsole(float theValue)
+{
+	cout << endl << theValue << endl;
+}
+
+void DisplayMessageOnConsole(const char *theMessage)
+{
+	cout << theMessage <<endl;
+}
+
+
+struct aTapeElement
+{
+	char Operator;
+	float Operand;
+	aTapeElement *NextElement;
+}
+
 
 void Tape(const char theOperator,const float theOperand)
 {
-	static const int myTapeChunk = 3;
+	static aTapeElement *TapeRoot = NULL;
 
-	static char *myOperator = new char[myTapeChunk];
-	static int *myOperand = new int[myTapeChunk];
-
-	static int myTapeSize = myTapeChunk;
-	static int myNumberofEntries = 0;
-
-	switch (theOperator)
+	if (theOperator == '?')
 	{
-		case '?':
-			for
+		PrintTape(TapeRoot);
+	}
+	else if (theOperand == '.')
+	{
+		DeleteTape(TapeRoot);
+	}
+	else
+	{
+		aTapeElement *NewElement = new aTapeElement;
+		NewElement->Operator = theOperator;
+		NewElement->Operand = theOperand;
+		NewElement->NextElement =NULL;
+
+		if (TapeRoot == NULL)
+		{
+			TapeRoot = NewElement;
+		}
+		else
+		{
+			aTapeElement *CurrentTapeElement = TapeRoot;
+			while 
 				(
-				 int Index =0;
-				 Index < myNumberofEntries;
-				 Index++
+				 CurrentTapeElement->NextElement != NULL
 				)
 				{
-					cout <<myOperator[Index]<<","<<
-						myOperand[Index]<<
-						endl;
+					CurrentTapeElement=
+						CurrentTapeElement->NextElement;
 				};
-			break;
-			
-		case '.':
-			delete [] myOperator;
-			delete [] myOperand;
-			break;
-
-		default:
-
-			if (myNumberofEntries == myTapeSize)
-			{
-				char *ExpandedOperator =
-					new char[myNumberofEntries + myTapeChunk];
-				int * ExpandedOperand =
-					new int [myNumberofEntries + myTapeSize];
-				char *FromOperator = myOperator;
-				int *FromOperand = myOperand;
-
-				char *ToOperator = ExpandedOperator;
-				int *ToOperand = ExpandedOperand;
-
-				for
-					(
-					 int Index =0;
-					 Index < myNumberofEntries;
-					 Index++
-					)
-					{
-						*ToOperator++ = *FromOperator++;
-						*ToOperand++ = *FromOperand++;
-					};
-				delete [] myOperator;
-				delete [] myOperand;
-
-				myOperator = ExpandedOperator;
-				myOperand = ExpandedOperand;
-
-				myTapeSize += myTapeChunk;
-			};
-
-			myOperator[myNumberofEntries] = theOperator;
-			myOperand[myNumberofEntries] = theOperand;
-			myNumberofEntries++;
+			CurrentTapeElement->NextElement = NewElement;
+		};
 	};
 };
-
-float Accumulator(const char theOperator,const float theOperand = 0)
-{
-	static float myAccumulator = 0;
-	switch(theOperator)
-	{
-		case '+':
-			myAccumulator =myAccumulator +theOperand;
-			Tape(theOperator,theOperand);
-			break;
-
-		case '-':
-			myAccumulator =myAccumulator - theOperand;
-			Tape(theOperator,theOperand);
-			break;
-
-		case '*':
-			myAccumulator = myAccumulator * theOperand;
-			Tape(theOperator,theOperand);
-			break;
-			
-		case '/':
-			myAccumulator = myAccumulator / theOperand;
-			Tape(theOperator,theOperand);
-			break;
-
-		case '@':
-			myAccumulator =theOperand;
-			Tape(theOperator,theOperand);
-			break;
-		case '=':
-			cout << endl << myAccumulator <<endl;
-			break;
-		case '?':
-			Tape (theOperator,0);
-			break;
-		default:
-			throw
-				runtime_error
-				("Error - Invalid operator");
-	};
-	return myAccumulator;
-}
 
 bool TestOk(
 		const char theOperator,
