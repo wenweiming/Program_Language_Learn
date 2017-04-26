@@ -3,6 +3,7 @@
 namespace SAMSPrompt
 {
 	using namespace std;
+	bool InvalidCharacterWasEntered =false;
 	
 	void PauseForUserAcknowledgement(void)
 	{
@@ -14,8 +15,25 @@ namespace SAMSPrompt
 	bool UserWantsToContinue(const char *theThingWeAreDoing)
 	{
 		char DoneCharacter;
-		cout << endl << theThingWeAreDoing << "- Press \"n\" and \"Enter\" to stop: ";
-		cin >> DoneCharacter;
+		do
+		{
+			cout << endl << theThingWeAreDoing << "- Press \"n\" and \"Enter\" to stop: ";
+			cin >> DoneCharacter;
+
+			InvalidCharacterWasEntered =
+					!
+					(
+					 (DoneCharacter == 'y')
+				 	||	
+				 	(DoneCharacter == 'n')
+					);
+			if (InvalidCharacterWasEntered)
+			{
+				cout << "...Error -" <<"Please enter \"y\" or \"n\"."<<endl;
+			};
+		}
+		while (InvalidCharacterWasEntered);
+
 		return (DoneCharacter != 'n');
 	}
 }

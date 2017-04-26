@@ -26,17 +26,20 @@ int main(int argc, char* argv[])
 {
 	SAMSErrorHandling::Initialize();
 	float ReturnCode=0;
-
 	try
 	{
-		float Dividend =GetDividend();
-		float Divisor =GetDivisor();
-		cout << Divide(Dividend,Divisor) <<endl;
+		do
+		{
+			float Dividend =GetDividend();
+			float Divisor =GetDivisor();
+			cout << Divide(Dividend,Divisor) <<endl;
+		}
+		while(SAMSPrompt::UserWantsToContinue("More division?"));
 	}
 	catch(...)
 	{
 		ReturnCode=SAMSErrorHandling::HandleNotANumberError();
 	};
-	SAMSPrompt::PauseForUserAcknowledgement();
+	
 	return ReturnCode;
 }
