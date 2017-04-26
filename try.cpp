@@ -1,6 +1,7 @@
 #include<iostream>
 #include"PromptModule.h"
 #include"ErrorHandlingModule.h"
+#include"AccumulatorModule.h"
 
 using namespace std;
 char GetOperator()
@@ -33,7 +34,7 @@ struct aTapeElement
 	char Operator;
 	float Operand;
 	aTapeElement *NextElement;
-}
+};
 
 
 void Tape(const char theOperator,const float theOperand)
