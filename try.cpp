@@ -18,7 +18,45 @@ float GetOperand()
 	cin >> Operand;
 	return Operand;
 }
-	
+
+void Tape(const char theOperator,const float theOperand)
+{
+	static const int myTapeSize = 5;
+	static char myOperator[myTapeSize];
+	static float myOperand[myTapeSize];
+	static int myNumberofEntries =0;
+
+	if (theOperator != '?')
+	{
+		if (myNumberofEntries < myTapeSize)
+		{
+			myOperator[myNumberofEntries] = theOperator;
+			myOperand[myNumberofEntries] = theOperand;
+			myNumberofEntries++;
+		}
+		else
+		{
+			throw runtime_error 
+			("Error - Out of room on the tape.");
+
+		};
+	}
+	else
+	{
+		for
+			(
+			 int Index =0;
+			 Index < myNumberofEntries;
+			 Index++
+			)
+			{
+				cout <<myOperator[Index]<<","<<
+					myOperand[Index]<<
+					endl;
+			};
+	};
+};
+
 float Accumulate(const char theOperator,const float theOperand)
 {
 	static float myAccumulator = 0;
@@ -39,13 +77,17 @@ float Accumulate(const char theOperator,const float theOperand)
 		case '/':
 			myAccumulator = myAccumulator / theOperand;
 			break;
+		case '?':
+			break;
 		default:
 			throw
 				runtime_error
 				("Error - Invalid operator");
 	};
+	Tape(theOperator,theOperand);
 	return myAccumulator;
 }
+
 int main(int argc, char* argv[])
 {
 	SAMSErrorHandling::Initialize();
