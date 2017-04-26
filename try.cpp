@@ -3,24 +3,48 @@
 #include"ErrorHandlingModule.h"
 
 using namespace std;
+char GetOperator()
+{
+	char Operator='+';
+	cout << "Operator: ";
+	cin >> Operator;
+	return Operator;
+}
 
-float GetDividend(void)
+float GetOperand()
 {
-	float Dividend=0;
-	cout <<"Dividend: ";
-	cin >>Dividend;
-	return Dividend;
+	float Operand =1;
+	cout << "Operand: ";
+	cin >> Operand;
+	return Operand;
 }
-float GetDivisor(void)
+	
+float Accumulate(const char theOperator,const float theOperand)
 {
-	float Divisor =1;
-	cout <<"Divisor: ";
-	cin >>Divisor;
-	return Divisor;
-}
-float Divide(const float theDividend,const float theDivisor)
-{
-	return (theDividend/theDivisor);
+	static float myAccumulator = 0;
+	switch(theOperator)
+	{
+		case '+':
+			myAccumulator =myAccumulator +theOperand;
+			break;
+
+		case '-':
+			myAccumulator =myAccumulator - theOperand;
+			break;
+
+		case '*':
+			myAccumulator = myAccumulator * theOperand;
+			break;
+			
+		case '/':
+			myAccumulator = myAccumulator / theOperand;
+			break;
+		default:
+			throw
+				runtime_error
+				("Error - Invalid operator");
+	};
+	return myAccumulator;
 }
 int main(int argc, char* argv[])
 {
@@ -30,15 +54,20 @@ int main(int argc, char* argv[])
 	{
 		do
 		{
-			float Dividend =GetDividend();
-			float Divisor =GetDivisor();
-			cout << Divide(Dividend,Divisor) <<endl;
+			char Operator = GetOperator();
+			float Operand = GetOperand();
+
+			cout << Accumulate(Operator,Operand) <<endl;
 		}
-		while(SAMSPrompt::UserWantsToContinue("More division?"));
+		while(SAMSPrompt::UserWantsToContinue("More?"));
+	}
+	catch(runtime_error RuntimeError)
+	{
+		ReturnCode=SAMSErrorHandling::HandleRuntimeError(RuntimeError);
 	}
 	catch(...)
 	{
-		ReturnCode=SAMSErrorHandling::HandleNotANumberError();
+		SAMSErrorHandling::HandleNotANumberError();
 	};
 	
 	return ReturnCode;
