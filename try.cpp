@@ -6,7 +6,6 @@ using namespace std;
 char GetOperator()
 {
 	char Operator='+';
-	cout << "Operator: ";
 	cin >> Operator;
 	return Operator;
 }
@@ -14,14 +13,14 @@ char GetOperator()
 float GetOperand()
 {
 	float Operand =1;
-	cout << "Operand: ";
 	cin >> Operand;
 	return Operand;
 }
 
+
 void Tape(const char theOperator,const float theOperand)
 {
-	static const int myTapeChunk = 5;
+	static const int myTapeChunk = 3;
 
 	static char *myOperator = new char[myTapeChunk];
 	static int *myOperand = new int[myTapeChunk];
@@ -89,51 +88,136 @@ void Tape(const char theOperator,const float theOperand)
 	};
 };
 
-float Accumulate(const char theOperator,const float theOperand)
+float Accumulator(const char theOperator,const float theOperand = 0)
 {
 	static float myAccumulator = 0;
 	switch(theOperator)
 	{
 		case '+':
 			myAccumulator =myAccumulator +theOperand;
+			Tape(theOperator,theOperand);
 			break;
 
 		case '-':
 			myAccumulator =myAccumulator - theOperand;
+			Tape(theOperator,theOperand);
 			break;
 
 		case '*':
 			myAccumulator = myAccumulator * theOperand;
+			Tape(theOperator,theOperand);
 			break;
 			
 		case '/':
 			myAccumulator = myAccumulator / theOperand;
+			Tape(theOperator,theOperand);
+			break;
+
+		case '@':
+			myAccumulator =theOperand;
+			Tape(theOperator,theOperand);
+			break;
+		case '=':
+			cout << endl << myAccumulator <<endl;
 			break;
 		case '?':
+			Tape (theOperator,0);
 			break;
 		default:
 			throw
 				runtime_error
 				("Error - Invalid operator");
 	};
-	Tape(theOperator,theOperand);
 	return myAccumulator;
+}
+
+bool TestOk(
+		const char theOperator,
+		const float theOperand,
+		const float theExpectedResult
+	   )
+{
+	float Result = Accumulator(theOperator,theOperand);
+	if (Result == theExpectedResult)
+	{
+		cout << theOperator << theOperand <<
+			" - succeeded." <<endl;
+		return true;
+	}
+	else
+	{
+		cout << theOperator << theOperand << "- failed." <<
+			"Expected " << theExpectedResult <<
+			", got" << Result <<
+			endl;
+		return false;
+	};
+}
+
+void SelfTest(void)
+{
+	float OldValue = Accumulator('=');
+	try
+	{
+		if
+			(
+			 TestOk('@',0,0) &&
+			 TestOk('+',3,3) &&
+			 TestOk('-',2,1) &&
+			 TestOk('*',4,4) &&
+			 TestOk('/',2,2)
+			)
+			{
+				cout << "Test Completed successful." <<endl;
+			}
+		else
+		{
+			cout << "Test failed." <<endl;
+		};
+	}
+	catch(...)
+	{
+		cout << "An exception occured during self test." << endl;
+	};
+	Accumulator('@',OldValue);
 }
 
 int main(int argc, char* argv[])
 {
 	SAMSErrorHandling::Initialize();
 	float ReturnCode=0;
+	char Operator;
 	try
 	{
 		do
 		{
-			char Operator = GetOperator();
-			float Operand = GetOperand();
-
-			cout << Accumulate(Operator,Operand) <<endl;
+			Operator = GetOperator();
+			if
+				(
+				 Operator == '+' ||
+				 Operator == '-' ||
+				 Operator == '*' ||
+				 Operator == '/' ||
+				 Operator == '@' 
+				)
+				{
+					 float Operand =GetOperand();
+					 Accumulator(Operator,Operand);
+				}
+			else if (Operator == '!')
+			{
+				SelfTest();
+			}
+			else if (Operator == '.')
+			{
+			}
+			else
+			{
+				Accumulator(Operator);
+			};
 		}
-		while(SAMSPrompt::UserWantsToContinue("More?"));
+		while(Operator != '.');
+		Tape('.',0);
 	}
 	catch(runtime_error RuntimeError)
 	{
