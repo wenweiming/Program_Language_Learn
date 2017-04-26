@@ -21,39 +21,71 @@ float GetOperand()
 
 void Tape(const char theOperator,const float theOperand)
 {
-	static const int myTapeSize = 5;
-	static char myOperator[myTapeSize];
-	static float myOperand[myTapeSize];
-	static int myNumberofEntries =0;
+	static const int myTapeChunk = 5;
 
-	if (theOperator != '?')
+	static char *myOperator = new char[myTapeChunk];
+	static int *myOperand = new int[myTapeChunk];
+
+	static int myTapeSize = myTapeChunk;
+	static int myNumberofEntries = 0;
+
+	switch (theOperator)
 	{
-		if (myNumberofEntries < myTapeSize)
-		{
+		case '?':
+			for
+				(
+				 int Index =0;
+				 Index < myNumberofEntries;
+				 Index++
+				)
+				{
+					cout <<myOperator[Index]<<","<<
+						myOperand[Index]<<
+						endl;
+				};
+			break;
+			
+		case '.':
+			delete [] myOperator;
+			delete [] myOperand;
+			break;
+
+		default:
+
+			if (myNumberofEntries == myTapeSize)
+			{
+				char *ExpandedOperator =
+					new char[myNumberofEntries + myTapeChunk];
+				int * ExpandedOperand =
+					new int [myNumberofEntries + myTapeSize];
+				char *FromOperator = myOperator;
+				int *FromOperand = myOperand;
+
+				char *ToOperator = ExpandedOperator;
+				int *ToOperand = ExpandedOperand;
+
+				for
+					(
+					 int Index =0;
+					 Index < myNumberofEntries;
+					 Index++
+					)
+					{
+						*ToOperator++ = *FromOperator++;
+						*ToOperand++ = *FromOperand++;
+					};
+				delete [] myOperator;
+				delete [] myOperand;
+
+				myOperator = ExpandedOperator;
+				myOperand = ExpandedOperand;
+
+				myTapeSize += myTapeChunk;
+			};
+
 			myOperator[myNumberofEntries] = theOperator;
 			myOperand[myNumberofEntries] = theOperand;
 			myNumberofEntries++;
-		}
-		else
-		{
-			throw runtime_error 
-			("Error - Out of room on the tape.");
-
-		};
-	}
-	else
-	{
-		for
-			(
-			 int Index =0;
-			 Index < myNumberofEntries;
-			 Index++
-			)
-			{
-				cout <<myOperator[Index]<<","<<
-					myOperand[Index]<<
-					endl;
-			};
 	};
 };
 
