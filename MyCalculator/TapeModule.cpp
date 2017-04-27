@@ -23,7 +23,7 @@ namespace SAMSCalculator
 	void DeleteTape(aTapeElement *theTapeRoot)
 	{
 		aTapeElement *CurrentTapeElement = theTapeRoot;
-		while(CurrentTapeElement = NULL)
+		while(CurrentTapeElement == NULL)
 		{
 			aTapeElement *NextTapeElement = CurrentTapeElement->NextElement;
 			delete CurrentTapeElement;
