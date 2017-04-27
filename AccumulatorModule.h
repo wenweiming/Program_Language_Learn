@@ -7,9 +7,10 @@ namespace SAMSCalculator
 	{add,subtract,multiply,divide,reset,query};
 
 	float Accumulator
-	{
+	(	
 		const anOperator theOperator,
 		      const float theOperand =0
-	};
+	);
 };
-		      
+
+#endif	      
