@@ -13,27 +13,22 @@ namespace SAMSCalculator
 		{
 			case add:
 				myAccumulator =myAccumulator +theOperand;
-				Tape(theOperator,theOperand);
 				break;
 	
 			case subtract:
 				myAccumulator =myAccumulator - theOperand;
-				Tape(theOperator,theOperand);
 				break;
 	
 			case multiply:
 				myAccumulator = myAccumulator * theOperand;
-				Tape(theOperator,theOperand);
 				break;
 				
 			case divide:
 				myAccumulator = myAccumulator / theOperand;
-				Tape(theOperator,theOperand);
 				break;
 	
 			case reset:
 				myAccumulator =theOperand;
-				Tape(theOperator,theOperand);
 				break;
 			case query:
 				cout << endl << myAccumulator <<endl;

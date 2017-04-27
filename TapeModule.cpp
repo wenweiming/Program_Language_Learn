@@ -3,6 +3,20 @@
 
 namespace SAMSCalculator
 {
+	using namespace std;
+
+	void PrintTape(aTapeElement *theTapeElement)
+	{
+		cout << *theTapeElement.Operator <<
+			*theTapeElement.Operand <<
+			endl;
+
+	};
+
+	void DeleteTape(aTapeElement *theTapeElement)
+	{
+
+	};
 
 	void Tape(const char theOperator,const float theOperand)
 	{
