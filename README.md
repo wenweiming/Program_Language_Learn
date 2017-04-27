@@ -1,2 +1,2 @@
-#Learn CPP by a book of SAMS
+# Learn CPP by a book of SAMS
 这是一本比较好的C++入门的书，这本书从编写一个计算器程序入手，一步一步来了解C++的知识，具有很好的实践性，通过这本书的学习，至少能够对于C++有一个感性的认识。
