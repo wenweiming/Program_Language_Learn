@@ -1,0 +1,9 @@
+USEUNIT("Main2.cpp");
+USEUNIT("RequestModule.cpp");
+USEUNIT("AccumulatorModule.cpp");
+USEUNIT("BasicAccumulatorModule.cpp");
+USEUNIT("InstanceCountableModule.cpp");
+//---------------------------------------------------------------------------
+This file is used by the project manager only and should be treated like the project file
+
+main

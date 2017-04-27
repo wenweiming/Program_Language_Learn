@@ -1,0 +1,15 @@
+USEUNIT("Main.cpp");
+USEUNIT("ExternalInterfaceModule.cpp");
+USEUNIT("RequestModule.cpp");
+USEUNIT("AccumulatorModule.cpp");
+USEUNIT("TapeModule.cpp");
+USEUNIT("ControllerModule.cpp");
+USEUNIT("BasicAccumulatorModule.cpp");
+USEUNIT("ConsoleOnlyExternalInterfaceModule.cpp");
+USEUNIT("ConsoleAndPersistentTapeExternalInterfaceModule.cpp");
+USEUNIT("PersistentTapeModule.cpp");
+USEUNIT("TransientTapeModule.cpp");
+//---------------------------------------------------------------------------
+This file is used by the project manager only and should be treated like the project file
+
+main
