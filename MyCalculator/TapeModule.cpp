@@ -5,16 +5,30 @@ namespace SAMSCalculator
 {
 	using namespace std;
 
-	void PrintTape(aTapeElement *theTapeElement)
+	void PrintTape(aTapeElement *theTapeRoot)
 	{
-		cout << *theTapeElement.Operator <<
-			*theTapeElement.Operand <<
-			endl;
+		aTapeElement *CurrentTapeElement = theTapeRoot;
+
+		while(CurrentTapeElement != NULL)
+		{
+			cout << CurrentTapeElement->Operator <<
+				CurrentTapeElement->Operand <<
+				endl;
+
+			CurrentTapeElement=CurrentTapeElement->NextElement;
+		}
 
 	};
 
-	void DeleteTape(aTapeElement *theTapeElement)
+	void DeleteTape(aTapeElement *theTapeRoot)
 	{
+		aTapeElement *CurrentTapeElement = theTapeRoot;
+		while(CurrentTapeElement = NULL)
+		{
+			aTapeElement *NextTapeElement = CurrentTapeElement->NextElement;
+			delete CurrentTapeElement;
+			CurrentTapeElement = NextTapeElement;
+		}
 
 	};
 
