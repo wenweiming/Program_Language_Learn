@@ -1,4 +1,5 @@
 #include<exception>
+#include<fstream>
 
 #ifndef ErrorHandlingModuleH
 #define ErrorHandlingModuleH
@@ -10,6 +11,8 @@ namespace SAMSErrorHandling
 	void Initialize(void);
 	int HandleNotANumberError(void);
 	int HandleRuntimeError(runtime_error theRuntimeError);
+	int HandleInputStreamError(ifstream &theStream,ios_base::failure &theIOError);
+	int HandleOutputStreamError(ofstream &theStream,ios_base::failure &theIOError);
 }
 
 #endif

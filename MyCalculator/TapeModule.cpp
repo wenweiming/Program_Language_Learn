@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ios>
 #include "TapeModule.h"
 #include <fstream>
 #include <exception>
@@ -68,7 +69,9 @@ namespace SAMSCalculator
 
 	};
 
-	void Tape(const char theOperator,const float theOperand)
+	void Tape(const char theOperator,
+			const float theOperand,
+			const char *theTapeOutputStreamName)
 	{
 		static aTapeElement *TapeRoot = NULL;
 	
@@ -76,8 +79,9 @@ namespace SAMSCalculator
 		{
 			PrintTape(TapeRoot);
 		}
-		else if (theOperand == '.')
+		else if (theOperator == '.')
 		{
+			StreamTape(theTapeOutputStreamName,TapeRoot);
 			DeleteTape(TapeRoot);
 		}
 		else

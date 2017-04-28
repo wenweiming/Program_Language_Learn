@@ -26,4 +26,20 @@ namespace SAMSErrorHandling
 			endl;
 		return 1;
 	}
+
+	int HandleInputStreamError(ifstream &theStream,ios_base::failure &theIOError)
+	{
+		cerr << "Input error - " << theIOError.what() <<endl;
+		theStream.clear();
+
+		return 1;
+	}
+	
+	int HandleOutputStreamError(ofstream &theStream,ios_base::failure &theIOError)
+	{
+		cerr << "Output error - " << theIOError.what() <<endl;
+		theStream.clear();
+
+		return 1;
+	}
 }

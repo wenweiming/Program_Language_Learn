@@ -15,7 +15,9 @@ namespace SAMSCalculator
 
 	void DeleteTape(aTapeElement *theTapeElement);
 	
-	void Tape(const char theOperator,const float theOperand=0);
+	void Tape(const char theOperator,
+		  const float theOperand=0,
+		  const char *theTapeOutputStreamName = NULL);
 
 	void TapeStream(
 			const char *theTapeOutputStreamName,
