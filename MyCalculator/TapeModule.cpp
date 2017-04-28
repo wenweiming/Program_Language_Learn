@@ -1,9 +1,45 @@
 #include <iostream>
 #include "TapeModule.h"
+#include <fstream>
+#include <exception>
+#include "ErrorHandlingModule.h"
 
 namespace SAMSCalculator
 {
 	using namespace std;
+
+	void StreamTape(
+			const char *theTapeOutputStreamName,
+			aTapeElement *theTapeRoot
+		       )
+	{
+		if (theTapeOutputStreamName == NULL) return;
+		ofstream TapeOutputStream;
+
+		try
+		{
+			TapeOutputStream.exceptions(TapeOutputStream.failbit);
+
+			TapeOutputStream.open (theTapeOutputStreamName,ios_base::out);
+
+			aTapeElement *CurrentTapeElement = theTapeRoot;
+
+			while (CurrentTapeElement !=NULL)
+			{
+				TapeOutputStream << CurrentTapeElement->Operator << CurrentTapeElement->Operand;
+				CurrentTapeElement=CurrentTapeElement->NextElement;
+			};
+
+			TapeOutputStream.close();
+		}
+		catch (ios_base::failure &IOError)
+		{
+			SAMSErrorHandling::HandleOutputStreamError(TapeOutputStream,IOError);
+		};
+	}
+
+
+
 
 	void PrintTape(aTapeElement *theTapeRoot)
 	{

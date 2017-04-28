@@ -1,6 +1,7 @@
+#include<exception>
+
 #ifndef ErrorHandlingModuleH
 #define ErrorHandlingModuleH
-#include<exception>
 
 
 namespace SAMSErrorHandling
