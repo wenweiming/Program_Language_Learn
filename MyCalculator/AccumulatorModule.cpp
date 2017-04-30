@@ -1,43 +1,69 @@
 #include<iostream>
 #include<exception>
+#include<string>
 
 #include"AccumulatorModule.h"
 namespace SAMSCalculator
 {
 	using namespace std;
-
-	float Accumulator(const anOperator theOperator,const float theOperand)
+	
+	anAccumulator::anAccumulator
+		(
+		 void
+		):
+			myValue(0)
 	{
-		static float myAccumulator = 0;
-		switch(theOperator)
+	};
+
+	anAccumulator::anAccumulator
+		(
+		 anAccumulator &theAccumulator
+		):
+			myValue(theAccumulator.myValue)
+	{
+	};
+
+	float anAccumulator::Apply(const aRequest &theRequest)
+	{
+		static (theRequest.Operator())
 		{
-			case add:
-				myAccumulator =myAccumulator +theOperand;
+			case aRequest::add:
+				myValue+= theRequest.Operand();
 				break;
 	
-			case subtract:
-				myAccumulator =myAccumulator - theOperand;
+			case aRequest::subtract:
+				myValue-= theRequest.Operand();
 				break;
 	
-			case multiply:
-				myAccumulator = myAccumulator * theOperand;
+			case aRequest::multiply:
+				myValue*= theRequest.Operand();
 				break;
 				
-			case divide:
-				myAccumulator = myAccumulator / theOperand;
+			case aRequest::divide:
+				myValue/= theRequest.Operand();
 				break;
 	
-			case reset:
-				myAccumulator =theOperand;
-				break;
+			//case reset:
+			//	myAccumulator =theOperand;
+			//	break;
 
-			case query:
-				break;
+			//case query:
+			//	break;
 			default:
 				throw
 					runtime_error
-					("Error - Invalid operator");
+					(
+					 string("SAMSCalculator::")+
+					 string("anAccumulator::")+
+					 string("Apply")+
+					 string("- Unknown Operator.")
+					 );
 		};
-		return myAccumulator;
+		return Value();
+	};
+
+	float anAccumulator::Value(void) const
+	{
+		return myValue;
 	};
 };

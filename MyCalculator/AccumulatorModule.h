@@ -3,14 +3,21 @@
 
 namespace SAMSCalculator
 {
-	enum anOperator
-	{add,subtract,multiply,divide,reset,query};
+	class anAccumulator
+	{
+		public:
+			anAccumulator(void);
 
-	float Accumulator
-	(	
-		const anOperator theOperator,
-		      const float theOperand =0
-	);
+			anAccumulator(anAccumulator &theAccumulator);
+
+			float Apply(const aRequest &theRequest);
+
+			float Value(void) const;
+
+		private:
+			float myValue;
+
+	};
 };
 
 #endif	      
